@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F1C7821C1EFC40DE0072C33D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7821B1EFC40DE0072C33D /* SearchResult.swift */; };
+		F1C7821E1EFC45810072C33D /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C7821D1EFC45810072C33D /* SearchResultCell.xib */; };
+		F1C782201EFC4B780072C33D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */; };
+		F1C782221EFC4D370072C33D /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C782211EFC4D370072C33D /* NothingFoundCell.xib */; };
 		F1DB0E251EFC23310036C86C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB0E241EFC23310036C86C /* AppDelegate.swift */; };
 		F1DB0E271EFC23310036C86C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB0E261EFC23310036C86C /* SearchViewController.swift */; };
 		F1DB0E2A1EFC23310036C86C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DB0E281EFC23310036C86C /* Main.storyboard */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		F1C7821B1EFC40DE0072C33D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		F1C7821D1EFC45810072C33D /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		F1C782211EFC4D370072C33D /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		F1DB0E211EFC23310036C86C /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DB0E241EFC23310036C86C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DB0E261EFC23310036C86C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +64,12 @@
 			children = (
 				F1DB0E241EFC23310036C86C /* AppDelegate.swift */,
 				F1DB0E261EFC23310036C86C /* SearchViewController.swift */,
+				F1C782211EFC4D370072C33D /* NothingFoundCell.xib */,
+				F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */,
 				F1DB0E281EFC23310036C86C /* Main.storyboard */,
 				F1C7821B1EFC40DE0072C33D /* SearchResult.swift */,
 				F1DB0E2B1EFC23310036C86C /* Assets.xcassets */,
+				F1C7821D1EFC45810072C33D /* SearchResultCell.xib */,
 				F1DB0E2D1EFC23310036C86C /* LaunchScreen.storyboard */,
 				F1DB0E301EFC23310036C86C /* Info.plist */,
 			);
@@ -127,6 +136,8 @@
 			files = (
 				F1DB0E2F1EFC23310036C86C /* LaunchScreen.storyboard in Resources */,
 				F1DB0E2C1EFC23310036C86C /* Assets.xcassets in Resources */,
+				F1C7821E1EFC45810072C33D /* SearchResultCell.xib in Resources */,
+				F1C782221EFC4D370072C33D /* NothingFoundCell.xib in Resources */,
 				F1DB0E2A1EFC23310036C86C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +151,7 @@
 			files = (
 				F1DB0E271EFC23310036C86C /* SearchViewController.swift in Sources */,
 				F1C7821C1EFC40DE0072C33D /* SearchResult.swift in Sources */,
+				F1C782201EFC4B780072C33D /* SearchResultCell.swift in Sources */,
 				F1DB0E251EFC23310036C86C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
