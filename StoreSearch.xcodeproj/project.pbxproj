@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F1526EF61F001EAC00AEC4A0 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1526EF51F001EAC00AEC4A0 /* LoadingCell.xib */; };
+		F1AA7EF61F01966A005723D2 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA7EF51F01966A005723D2 /* UIImageView+DownloadImage.swift */; };
 		F1C7821C1EFC40DE0072C33D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7821B1EFC40DE0072C33D /* SearchResult.swift */; };
 		F1C7821E1EFC45810072C33D /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C7821D1EFC45810072C33D /* SearchResultCell.xib */; };
 		F1C782201EFC4B780072C33D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		F1526EF51F001EAC00AEC4A0 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		F1AA7EF51F01966A005723D2 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		F1C7821B1EFC40DE0072C33D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		F1C7821D1EFC45810072C33D /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				F1DB0E261EFC23310036C86C /* SearchViewController.swift */,
 				F1C782211EFC4D370072C33D /* NothingFoundCell.xib */,
 				F1C7821F1EFC4B780072C33D /* SearchResultCell.swift */,
+				F1AA7EF51F01966A005723D2 /* UIImageView+DownloadImage.swift */,
 				F1DB0E281EFC23310036C86C /* Main.storyboard */,
 				F1C7821B1EFC40DE0072C33D /* SearchResult.swift */,
 				F1526EF51F001EAC00AEC4A0 /* LoadingCell.xib */,
@@ -153,6 +156,7 @@
 				F1C7821C1EFC40DE0072C33D /* SearchResult.swift in Sources */,
 				F1C782201EFC4B780072C33D /* SearchResultCell.swift in Sources */,
 				F1DB0E251EFC23310036C86C /* AppDelegate.swift in Sources */,
+				F1AA7EF61F01966A005723D2 /* UIImageView+DownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
