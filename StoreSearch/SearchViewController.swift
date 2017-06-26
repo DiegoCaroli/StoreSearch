@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
 
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var segmentedControl: UISegmentedControl!
   
   var searchResults = [SearchResult]()
   var hasSearched = false
@@ -29,24 +30,85 @@ class SearchViewController: UIViewController {
     
     searchBar.becomeFirstResponder()
     
-    tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+    tableView.contentInset = UIEdgeInsets(top: 94, left: 0, bottom: 0, right: 0)
     tableView.rowHeight = 80
     
     var cellNib = UINib(nibName: TableViewCellIdentifiers.searchResultCell, bundle: nil)
     tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.searchResultCell)
+    
     cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
     tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
+    
     cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
     tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
   }
   
-  func iTunesURL(searchText: String) -> URL {
+  @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+    performSearch()
+  }
+  
+  func iTunesURL(searchText: String, category: Int) -> URL {
+    let entityName: String
+    switch category {
+    case 1: entityName = "musicTrack"
+    case 2: entityName = "software"
+    case 3: entityName = "ebook"
+    default: entityName = ""
+    }
+    
     let escapedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     
-    let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", escapedSearchText)
+    let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
     
     let url = URL(string: urlString)
     return url!
+  }
+  
+  func performSearch() {
+    if !searchBar.text!.isEmpty {
+      searchBar.resignFirstResponder()
+      
+      dataTask?.cancel()
+      
+      isLoading = true
+      tableView.reloadData()
+      
+      hasSearched = true
+      searchResults = []
+      
+      let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
+      
+      let session = URLSession.shared
+      
+      dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
+        
+        if let error = error as NSError?, error.code == -999 {
+          return
+        } else if let httpResponse = response as? HTTPURLResponse,
+          httpResponse.statusCode == 200 {
+          if let data = data, let jsonDictionary = self.parse(json: data) {
+            self.searchResults = self.parse(dictionary: jsonDictionary)
+            self.searchResults.sort(by: <)
+            
+            DispatchQueue.main.async {
+              self.isLoading = false
+              self.tableView.reloadData()
+            }
+            return
+          }
+        } else {
+          print("Failure! \(response)")
+        }
+        
+        DispatchQueue.main.async {
+          self.hasSearched = false
+          self.isLoading = false
+          self.tableView.reloadData()
+          self.showNetworkError()
+        }
+      })
+      dataTask?.resume()
+    }
   }
   
   func parse(json data: Data) -> [String: Any]? {
@@ -169,7 +231,7 @@ class SearchViewController: UIViewController {
     case "album": return "Album"
     case "audiobook": return "Audio Book"
     case "book": return "Book"
-    case "ebbok": return "E-bbok"
+    case "ebook": return "E-book"
     case "feature-movie": return "Movie"
     case "music-video": return "Music Video"
     case "podcast": return "Podcast"
@@ -186,74 +248,8 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    if !searchBar.text!.isEmpty {
-      searchBar.resignFirstResponder()
-      
-      dataTask?.cancel()
-      
-      isLoading = true
-      tableView.reloadData()
-      
-      hasSearched = true
-      searchResults = []
-      
-      let url = iTunesURL(searchText: searchBar.text!)
-      
-      let session = URLSession.shared
-      
-      dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-        
-        if let error = error as NSError?, error.code == -999 {
-          return
-        } else if let httpResponse = response as? HTTPURLResponse,
-          httpResponse.statusCode == 200 {
-          if let data = data, let jsonDictionary = self.parse(json: data) {
-            self.searchResults = self.parse(dictionary: jsonDictionary)
-            self.searchResults.sort(by: <)
-            
-            DispatchQueue.main.async {
-              self.isLoading = false
-              self.tableView.reloadData()
-            }
-            return
-          }
-        } else {
-          print("Failure! \(response)")
-        }
-      })
-      
-      DispatchQueue.main.async {
-        self.hasSearched = false
-        self.isLoading = false
-        self.tableView.reloadData()
-        self.showNetworkError()
-      }
-      
-      dataTask?.resume()
-    }
+    performSearch()
   }
-//      let queue = DispatchQueue.global()
-//
-//      queue.async {
-//
-//
-//        if let jsonString = self.performStoreRequest(with: url),
-//          let jsonDictionary = self.parse(json: jsonString) {
-//            self.searchResults = self.parse(dictionary: jsonDictionary)
-//            self.searchResults.sort(by: <)
-//
-//            DispatchQueue.main.async {
-//              self.isLoading = false
-//              self.tableView.reloadData()
-//            }
-//            return
-//          }
-//        DispatchQueue.main.async {
-//          self.showNetworkError()
-//        }
-//        }
-//      }
-//    }
   
   func position(for bar: UIBarPositioning) -> UIBarPosition {
     return .topAttached
