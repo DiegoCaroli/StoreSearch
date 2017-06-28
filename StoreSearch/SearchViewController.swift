@@ -226,6 +226,19 @@ class SearchViewController: UIViewController {
     present(alert, animated: true, completion: nil)
   }
   
+  
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowDetail" {
+      let detailViewController = segue.destination as! DetailViewController
+      let searchResult = sender as! SearchResult
+      detailViewController.searchResult = searchResult
+    }
+  }
+  
+  
 }
 
 //MARK: - UISearchBarDelegate
@@ -281,6 +294,8 @@ extension SearchViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let searchResult = searchResults[indexPath.row]
+    performSegue(withIdentifier: "ShowDetail", sender: searchResult)
   }
   
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
