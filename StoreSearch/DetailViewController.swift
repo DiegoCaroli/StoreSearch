@@ -105,7 +105,7 @@ class DetailViewController: UIViewController {
   
 }
 
-
+//MARK: - UIViewControllerTransitioningDelegate
 extension DetailViewController: UIViewControllerTransitioningDelegate {
   
   func presentationController(forPresented presented: UIViewController,
@@ -136,4 +136,5 @@ extension DetailViewController: UIGestureRecognizerDelegate {
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
     return touch.view === self.view
   }
+  
 }

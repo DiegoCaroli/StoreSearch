@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F1526EF61F001EAC00AEC4A0 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1526EF51F001EAC00AEC4A0 /* LoadingCell.xib */; };
+		F16BCC951F0AA31F00F15EC0 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BCC941F0AA31F00F15EC0 /* LandscapeViewController.swift */; };
 		F18DFA3A1F03E1FF00F3022D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18DFA391F03E1FF00F3022D /* DetailViewController.swift */; };
 		F18DFA3C1F03E3C800F3022D /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18DFA3B1F03E3C800F3022D /* DimmingPresentationController.swift */; };
 		F18DFA3E1F0429A300F3022D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18DFA3D1F0429A300F3022D /* GradientView.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		F1526EF51F001EAC00AEC4A0 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		F16BCC941F0AA31F00F15EC0 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		F18DFA391F03E1FF00F3022D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F18DFA3B1F03E3C800F3022D /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		F18DFA3D1F0429A300F3022D /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = ../../../ClassSnippets/GradientView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				F1AA7EF51F01966A005723D2 /* UIImageView+DownloadImage.swift */,
 				F18DFA391F03E1FF00F3022D /* DetailViewController.swift */,
 				F18DFA3D1F0429A300F3022D /* GradientView.swift */,
+				F16BCC941F0AA31F00F15EC0 /* LandscapeViewController.swift */,
 				F1DB0E281EFC23310036C86C /* Main.storyboard */,
 				F18DFA401F042AA200F3022D /* BounceAnimationController.swift */,
 				F18DFA411F042AA300F3022D /* FadeOutAnimationController.swift */,
@@ -180,6 +183,7 @@
 				F18DFA3A1F03E1FF00F3022D /* DetailViewController.swift in Sources */,
 				F1DB0E251EFC23310036C86C /* AppDelegate.swift in Sources */,
 				F18DFA3E1F0429A300F3022D /* GradientView.swift in Sources */,
+				F16BCC951F0AA31F00F15EC0 /* LandscapeViewController.swift in Sources */,
 				F1AA7EF61F01966A005723D2 /* UIImageView+DownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
