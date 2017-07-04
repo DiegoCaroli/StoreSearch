@@ -135,7 +135,7 @@ class LandscapeViewController: UIViewController {
           let image = UIImage(data: data) {
           DispatchQueue.main.async {
             if let button = button {
-              button.setImage(image, for: .normal)
+              button.setImage(image.resizedImage(withBounds: CGSize(width: 60, height: 60)), for: .normal)
             }
           }
         }
