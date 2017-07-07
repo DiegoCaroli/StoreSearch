@@ -13,7 +13,12 @@ class LandscapeViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var pageControl: UIPageControl!
   
-  var searchResults = [SearchResult]()
+//  var searchResults = [SearchResult]()
+  
+  lazy var searchManager: SearchManager = {
+    return SearchManager.sharedInstance
+  }()
+  
   var firstTime = true
   private var downloadTasks = [URLSessionDownloadTask]()
   
@@ -45,7 +50,13 @@ class LandscapeViewController: UIViewController {
     
     if firstTime {
       firstTime = false
-      titleButtons(searchResults)
+      
+      switch searchManager.state {
+      case .notSearchedYet, .noResults, .loading:
+        break
+      case .results(let list):
+        titleButtons(list)
+      }
     }
   }
   
