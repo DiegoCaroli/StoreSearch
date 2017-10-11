@@ -82,6 +82,7 @@
 		F1DB0E231EFC23310036C86C /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F1DB0E301EFC23310036C86C /* Info.plist */,
 				F1DB0E2B1EFC23310036C86C /* Assets.xcassets */,
 				F1DB0E281EFC23310036C86C /* Main.storyboard */,
@@ -102,6 +103,20 @@
 				F15C4CCB1F0D2C5C00CAB84E /* SearchManager.swift */,
 			);
 			path = Services;
+=======
+				F1DB0E241EFC23310036C86C /* AppDelegate.swift */,
+				F1DB0E2B1EFC23310036C86C /* Assets.xcassets */,
+				F1F5E5641F8E9EBF00F543EB /* View Controllers */,
+				F1F5E5521F8E9DC400F543EB /* Controllers */,
+				F1F5E55A1F8E9E8200F543EB /* Views */,
+				F1DB0E301EFC23310036C86C /* Info.plist */,
+				F1DB0E281EFC23310036C86C /* Main.storyboard */,
+				F15C4CCB1F0D2C5C00CAB84E /* SearchManager.swift */,
+				F1F5E5571F8E9DF200F543EB /* Models */,
+				F1F5E5551F8E9DD900F543EB /* Extensions */,
+			);
+			path = StoreSearch;
+>>>>>>> 88daee3830da73928684641fcd6fac45b45151d8
 			sourceTree = "<group>";
 		};
 		F1F5E5521F8E9DC400F543EB /* Controllers */ = {
