@@ -84,7 +84,7 @@ class DetailViewController: UIViewController {
       artistNameLabel.text = searchResult.artistName
     }
     
-    kindLabel.text = searchResult.kindForDisplay()
+    kindLabel.text = searchResult.type
     genreLabel.text = searchResult.genre
     
     let priceText: String
