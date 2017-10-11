@@ -43,7 +43,7 @@ class SearchResultCell: UITableViewCell {
     if searchResult.artistName.isEmpty {
       artistNameLabel.text = "Unknown"
     } else {
-      artistNameLabel.text = String(format: "%@ (%@)", searchResult.artistName, searchResult.type)
+      artistNameLabel.text = String(format: "%@ (%@)", searchResult.artistName, searchResult.kindForDisplay())
     }
     
     artworkImageView.image = UIImage(named: "Placeholder")
