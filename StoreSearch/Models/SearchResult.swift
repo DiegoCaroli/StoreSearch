@@ -88,15 +88,19 @@ struct SearchResult: Decodable, CustomStringConvertible {
 }
 
 extension SearchResult: Equatable {
+  
   static func ==(lhs: SearchResult, rhs: SearchResult) -> Bool {
     return lhs.name == rhs.name && lhs.artistName == rhs.artistName
   }
+  
 }
 
 extension SearchResult: Comparable {
+  
   static func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
     return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
   }
+  
 }
 
 
