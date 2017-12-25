@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct SearchResult: Equatable, Comparable {
   
   var name: String
