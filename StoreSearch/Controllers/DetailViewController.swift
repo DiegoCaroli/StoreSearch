@@ -84,13 +84,13 @@ class DetailViewController: UIViewController {
       artistNameLabel.text = searchResult.artistName
     }
     
-    kindLabel.text = searchResult.kindForDisplay()
+    kindLabel.text = searchResult.type
     genreLabel.text = searchResult.genre
     
     let priceText: String
     if searchResult.price == 0 {
       priceText = "Free"
-    } else if let text = numberFormatter.string(from: searchResult.price as NSNumber) {
+    } else if let text = numberFormatter.string(from: NSNumber(value: searchResult.price)) {
       priceText = text
     } else {
       priceText = ""

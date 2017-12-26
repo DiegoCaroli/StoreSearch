@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   
   lazy var searchManager: SearchManager = {
-    return SearchManager.sharedInstance
+    return SearchManager.shared
   }()
   
   var landscapeViewController: LandscapeViewController?
@@ -102,7 +102,7 @@ class SearchViewController: UIViewController {
   
   func performSearch() {
     if let category = SearchManager.Category(rawValue: segmentedControl.selectedSegmentIndex) {
-      SearchManager.sharedInstance.performSearch(for: searchBar.text!, category: category, completion: { success in
+      SearchManager.shared.performSearch(for: searchBar.text!, category: category, completion: { success in
         if !success {
           self.showNetworkError()
         }

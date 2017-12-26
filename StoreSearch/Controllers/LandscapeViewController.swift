@@ -16,7 +16,7 @@ class LandscapeViewController: UIViewController {
 //  var searchResults = [SearchResult]()
   
   lazy var searchManager: SearchManager = {
-    return SearchManager.sharedInstance
+    return SearchManager.shared
   }()
   
   var firstTime = true

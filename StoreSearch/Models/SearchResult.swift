@@ -8,19 +8,66 @@
 
 import Foundation
 
-struct SearchResult: Equatable, Comparable {
+struct SearchResult: Decodable, CustomStringConvertible {
+  let artistName: String
   
-  var name: String
-  var artistName: String
-  var artworkSmallURL: String
-  var artworkLargeURL: String
-  var storeURL: String
-  var kind: String
-  var currency: String
-  var price: Double
-  var genre: String
+  let trackName: String?
+  let trackPrice: Double?
+  let trackURL: String?
   
-  func kindForDisplay() -> String {
+  let collectionName: String?
+  let collectionPrice: Double?
+  let collectionURL: String?
+  
+  let itemPrice: Double?
+  let itemGenre: String?
+  let bookGenre: [String]?
+  
+  let currency: String
+  let artworkSmallURL: String
+  let artworkLargeURL: String
+  let kind: String?
+
+  enum CodingKeys: String, CodingKey {
+    case artworkSmallURL = "artworkUrl60"
+    case artworkLargeURL = "artworkUrl100"
+    case itemGenre = "primaryGenreName"
+    case bookGenre = "genres"
+    case itemPrice = "price"
+    case trackURL = "trackViewUrl"
+    case collectionURL = "collectionViewUrl"
+    case kind, artistName, currency
+    case trackName, trackPrice
+    case collectionName, collectionPrice
+  }
+  
+  var name: String {
+    return trackName ?? collectionName ?? ""
+  }
+  
+  var storeURL: String {
+    return trackURL ?? collectionURL ?? ""
+  }
+  
+  var price: Double {
+    return trackPrice ?? collectionPrice ?? itemPrice ?? 0.0
+  }
+  
+  var genre: String {
+    if let genre = itemGenre {
+      return genre
+    } else if let genres = bookGenre {
+      return genres.joined(separator: ", ")
+    }
+    return ""
+  }
+
+  var description: String {
+    return "Kind: \(kind ?? "")Name: \(name), Artist Name: \(artistName)"
+  }
+  
+  var type: String {
+    let kind = self.kind ?? "audiobook"
     switch kind {
     case "album": return "Album"
     case "audiobook": return "Audio Book"
@@ -32,18 +79,22 @@ struct SearchResult: Equatable, Comparable {
     case "software": return "App"
     case "song": return "Song"
     case "tv-episode": return "TV Epidose"
-    default: return kind
+    default: break
     }
+    return "Unknown"
   }
-  
-  static func ==(lhs: SearchResult, rhs: SearchResult) -> Bool {
-    return lhs.name == rhs.name && lhs.artistName == rhs.artistName
-  }
-  
-  static func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
-    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
-  }
-  
+
 }
 
+extension SearchResult: Equatable {
+  static func ==(lhs: SearchResult, rhs: SearchResult) -> Bool {
+    return lhs.name == rhs.name
+  }
+}
+
+extension SearchResult: Comparable {
+  static func <(lhs: SearchResult, rhs: SearchResult) -> Bool {
+    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+  }
+}
 
